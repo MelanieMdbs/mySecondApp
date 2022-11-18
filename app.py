@@ -30,7 +30,7 @@ def delete():
   
   id = request.args.get('id')
   cur = mysql.connection.cursor() #create a connection to the SQL instance
-  s='''DELETE FROM students WHERE ID='{}';'''.format(id)
+  s='''DELETE FROM students WHERE studentID='{}';'''.format(id)
   cur.execute(s)
   mysql.connection.commit()
 
