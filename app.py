@@ -24,6 +24,21 @@ def add():
   mysql.connection.commit()
 
   return '{"Result":"Success"}'
+
+@app.route("/delete") #delete Student
+def delete():
+  
+  id = request.args.get('id')
+  cur = mysql.connection.cursor() #create a connection to the SQL instance
+  s='''DELETE FROM students WHERE ID='{}';'''.format(id)
+  cur.execute(s)
+  mysql.connection.commit()
+
+  return '{"Result":"Success"}'
+
+
+
+
 @app.route("/") #Default - Show Data
 def hello(): # Name of the method
   cur = mysql.connection.cursor() #create a connection to the SQL instance
